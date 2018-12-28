@@ -11,7 +11,6 @@ int main(int argc, char* argv[])
 	beverage2 = new Whip(beverage2);
 	std::cout << beverage2->getDescription() << ", $ " << beverage2->cost() << std::endl;
 	/*
-	std::cout << beverage2->getDescription() << ", $ " << beverage2->cost() << std::endl;
 	Beverage beverage3 = new HouseBlend();
 	beverage3 = new Soy(beverage3);
 	beverage3 = new Mocha(beverage3);
