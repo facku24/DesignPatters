@@ -1,15 +1,19 @@
 #include <iostream>
 #include "Pizza.h"
 #include "PizzaStore.h"
-#include "SimplePizzaFactory.h"
+//#include "SimplePizzaFactory.h"
 
 int main (int argc, char* argv[])
 {
-	SimplePizzaFactory spf;
+	PizzaStore* nyStore = new NYPizzaStore;
+	PizzaStore* chicagoStore = new ChicagoPizzaStore;
 
-	PizzaStore store(spf);
+	Pizza* pizza = nyStore->orderPizza("cheese");
+	std::cout << "Ethan ordered a " + pizza->getName() << std::endl;
 
-	Pizza* pizza = store.orderPizza("cheese");
+	std::cout << std::endl;
 
+	pizza = chicagoStore->orderPizza("cheese");
+	std::cout << "Joel ordered a " + pizza->getName() << std::endl;
 	return 0;
 }

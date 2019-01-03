@@ -1,22 +1,33 @@
 #ifndef _PIZZA_H_
 #define _PIZZA_H_
 
+#include <string>
+
 class Pizza
 {
-public:
-	virtual void prepare() = 0;
-	virtual void bake() = 0;
-	virtual void cut() = 0;
-	virtual void box() = 0;
-};
-
-class CheesePizza : public Pizza
-{
+protected:
+	std::string name;
+	std::string dough;
+	std::string sauce;
 public:
 	void prepare();
-	void bake(); 
-	void cut();
+	void bake();
+	virtual void cut();
 	void box();
+	std::string getName();
+};
+
+class NYStyleCheesePizza : public Pizza
+{
+public:
+	NYStyleCheesePizza();
+};
+
+class ChicagoStyleCheesePizza : public Pizza
+{
+public:
+	ChicagoStyleCheesePizza();
+	void cut();
 };
 
 /*class VeggiePizza : public Pizza

@@ -9,4 +9,6 @@ class SimplePizzaFactory
 public:
 	Pizza* createPizza(std::string type);
 };
+
+
 #endif //_SIMPLEPIZZAFACTORY_H_

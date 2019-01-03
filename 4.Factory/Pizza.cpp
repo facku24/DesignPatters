@@ -1,23 +1,49 @@
 #include "Pizza.h"
 #include <iostream>
 
-void CheesePizza::prepare()
+void Pizza::prepare()
 {
-	std::cout << "CheesePizza::prepare()" << std::endl;
+	std::cout << "Preparing " + name  << std::endl;
+	std::cout << "Tossing dough..." << std::endl;
+	std::cout << "Adding sauce..." << std::endl;
+	std::cout << "Adding toppings: "<< std::endl;
 }
 
-void CheesePizza::bake()
+void Pizza::bake()
 {
-	std::cout << "CheesePizza::bake()" << std::endl;
+	std::cout << "Bake for 25 minutes at 350" << std::endl;
 }
 
-void CheesePizza::cut()
+void Pizza::cut()
 {
-	std::cout << "CheesePizza::cut()" << std::endl;
+	std::cout << "Cutting the pizza into diagonal slices" << std::endl;
 }
 
-void CheesePizza::box()
+void Pizza::box()
 {
-	std::cout << "CheesePizza::box()" << std::endl;
+	std::cout << "Place pizza in official PizzaStore box" << std::endl;
 }
 
+std::string Pizza::getName()
+{
+	return name;
+}
+
+NYStyleCheesePizza::NYStyleCheesePizza()
+{
+	name = "NY Style Sauce and Cheese Pizza";
+	dough = "Thin Crust Dough";
+	sauce = "Marinara Sauce";
+}
+
+ChicagoStyleCheesePizza::ChicagoStyleCheesePizza()
+{
+	name = "Chicago Style Deep Dish Cheese Pizza";
+	dough = "Extra Thick Crust Dough";
+	sauce = "Plum Tomato Sauce";
+}
+
+void ChicagoStyleCheesePizza::cut()
+{
+	std::cout << "Cutting the pizza into square slices" << std::endl;
+}
