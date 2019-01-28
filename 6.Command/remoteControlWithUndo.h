@@ -13,6 +13,7 @@ public:
 	void setCommand(int slot, Command* onCommand, Command* offCommand);
 	void onButtonWasPushed(int slot);
 	void offButtonWasPushed(int slot);
+	void undoButtonWasPushed();
 	std::string toString();
 private:
 	std::vector<Command*> onCommands;

@@ -1,4 +1,5 @@
 #include "command.h"
+#include <iosteam>
 
 void NoCommand::execute()
 {
@@ -95,3 +96,37 @@ std::string GarageDoorCloseCommand::getName()
 	return "Garage Door";
 }
 
+CeilingFanHighCommand::CeilingFanHighCommand(CeilingFan ceilingFan)
+{
+	m_ceilingFan = ceilingFan;
+}
+
+void CeilingFanHighCommand::execute()
+{
+	prevSpeed = m_ceilingFan.prevSpeed();
+	ceilingFan.upSpeed();
+	std::cout << "The new speed is: " << std::toString(ceilingFan.getSpeed()) << std::endl;
+}
+
+void CeilingFanHighCommand::undo()
+{
+	switch (prevSpeed){
+		case CeilingFan.HIGH:
+			m_ceilingFan.high();
+			break;
+		case CeilingFan.MEDIUM:
+			m_ceilingFan.medium();
+			break;
+		case CeilingFan.LOW:
+			m_ceilingFan.low();
+			break;
+		case CeilingFan.OFF:
+			m_ceilingFan.off();
+			break;
+	}
+}
+
+std::string CeilingFanHighCommand::getName()
+{
+	return "Ceiling Fan High";
+}

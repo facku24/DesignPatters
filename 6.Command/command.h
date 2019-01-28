@@ -3,6 +3,7 @@
 
 #include "light.h"
 #include "garageDoor.h"
+#include "ceilingFan.h"
 
 #include <string>
 
@@ -66,4 +67,15 @@ private:
 	GarageDoor gDoor;
 };
 
+class CeilingFanHighCommand : public Command
+{
+public: 
+	CeilingFanHighCommand(CeilingFan ceilingFan);
+	void execute();
+	void undo();
+	std::string getName();
+private:
+	CeilingFan m_ceilingFan;
+	int prevSpeed;
+};
 #endif // _COMMAND_H_

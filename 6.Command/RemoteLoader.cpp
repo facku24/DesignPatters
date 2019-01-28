@@ -1,11 +1,18 @@
 #include "simpleRemoteControl.h"
-#include "remoteControl.h"
+//#include "remoteControl.h"
+
+// only if we have a Undo Command
+#include "remoteControlWithUndo.h"
 
 #include <iostream>
 
 int main(int argc, char* argv[])
 {
-	RemoteControl remoteControl;
+	
+	//RemoteControl remoteControl;	
+
+	// only if we have a Undo Command
+	RemoteControlWithUndo remoteControl;
 
 	Light livingRoomLight("Living Room");
 	GarageDoor garageDoor;
@@ -25,7 +32,14 @@ int main(int argc, char* argv[])
 
 	remoteControl.onButtonWasPushed(0);
 	remoteControl.offButtonWasPushed(0);
+	
+	// only if we have a Undo Command
+	remoteControl.undoButtonWasPushed();
+
 	remoteControl.onButtonWasPushed(1);
 	remoteControl.offButtonWasPushed(1);
+
+	// only if we have a Undo Command
+	remoteControl.undoButtonWasPushed();	
 	return 0;
 }

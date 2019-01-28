@@ -29,11 +29,18 @@ void RemoteControlWithUndo::setCommand(int slot, Command* onCommand, Command* of
 void RemoteControlWithUndo::onButtonWasPushed(int slot)
 {
 	onCommands[slot]->execute();
+	undoCommand = onCommands[slot];
 }
 
 void RemoteControlWithUndo::offButtonWasPushed(int slot)
 {
 	offCommands[slot]->execute();
+	undoCommand = offCommands[slot];
+}
+
+void RemoteControlWithUndo::undoButtonWasPushed()
+{
+	undoCommand->undo();
 }
 
 std::string RemoteControlWithUndo::toString()
